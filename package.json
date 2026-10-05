@@ -1,0 +1,9 @@
+{
+  "name": "prototipos-comercial",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm run dev -w apps/silvia-marmitas",
+    "build": "npm run build -w apps/silvia-marmitas"
+  }
+}
