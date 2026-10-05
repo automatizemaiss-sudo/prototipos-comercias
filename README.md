@@ -25,5 +25,4 @@ Importar o repositório, definir **Root Directory = `apps/silvia-marmitas`**, e 
 ### Pendências (TODO)
 - Endereço/coordenadas e WhatsApp reais do restaurante (`menu.ts` / variáveis `NEXT_PUBLIC_RESTAURANT_*`).
 - Confirmar se pode repetir proteína (`allowRepeat` em `PROTEINAS_2`).
-- Fotos das bebidas (iFood retornou 403): hoje usam placeholder em `public/pratos/bebida.svg`.
 - Preço da Marmita G (Monte) no iFood: hoje R$ 27,90 (promo); cheio R$ 29,90 — editar `ifoodPrice`.

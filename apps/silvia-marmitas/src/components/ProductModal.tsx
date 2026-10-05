@@ -44,7 +44,7 @@ export default function ProductModal({ product, onClose }: { product: Product; o
       >
         <div className="overflow-y-auto">
           <div className="relative aspect-[4/3] w-full bg-gray-100">
-            <Image src={product.image} alt={product.name} fill sizes="512px" className="object-cover" priority />
+            <Image src={product.image} alt={product.name} fill sizes="512px" className={product.category === "bebidas" ? "bg-white object-contain p-4" : "object-cover"} priority />
             <button
               onClick={onClose}
               aria-label="Fechar"

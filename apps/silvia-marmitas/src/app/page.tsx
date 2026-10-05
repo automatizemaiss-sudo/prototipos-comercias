@@ -23,7 +23,7 @@ function ProductCard({ p, onOpen }: { p: Product; onOpen: () => void }) {
         </div>
       </div>
       <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-gray-100">
-        <Image src={p.image} alt={p.name} fill sizes="112px" className="object-cover" />
+        <Image src={p.image} alt={p.name} fill sizes="112px" className={p.category === "bebidas" ? "bg-white object-contain p-1" : "object-cover"} />
       </div>
     </button>
   );
@@ -54,8 +54,8 @@ export default function Home() {
   const list = (id: string) => (id === "destaques" ? (["monte-g", "monte-m", "monte-p", "dia-p"].map((x) => PRODUCTS.find((p) => p.id === x)!)) : PRODUCTS.filter((p) => p.category === id));
 
   return (
-    <main className="mx-auto w-full max-w-lg pb-28">
-      <header className="bg-gradient-to-br from-brand to-brand-dark px-4 pb-6 pt-8 text-white">
+    <main className="mx-auto w-full max-w-5xl pb-28">
+      <header className="bg-gradient-to-br from-brand to-brand-dark px-4 pb-6 pt-8 text-white md:rounded-b-3xl md:px-8">
         <div className="flex items-center gap-3">
           <Image src="/logo-silvia.jpg" alt="Logo Silvia" width={64} height={64} className="rounded-2xl border-2 border-white/60" priority />
           <div>
@@ -89,7 +89,7 @@ export default function Home() {
         {CATEGORIES.map((c) => (
           <section key={c.id} id={`cat-${c.id}`} className="scroll-mt-20">
             <h2 className="mb-3 text-lg font-extrabold">{c.label}</h2>
-            <div className="space-y-3">
+            <div className="grid gap-3 md:grid-cols-2">
               {list(c.id).map((p) => (
                 <ProductCard key={`${c.id}-${p.id}`} p={p} onOpen={() => setOpen(p)} />
               ))}

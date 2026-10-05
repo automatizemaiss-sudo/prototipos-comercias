@@ -146,7 +146,6 @@ const DIA_DESC_P =
 const own = (ifood: number) => Math.round((ifood - DISCOUNT_VS_IFOOD) * 100) / 100;
 
 const IMG = "/pratos/";
-const BEBIDA_PLACEHOLDER = IMG + "bebida.svg"; // TODO: fotos de bebida do iFood retornam 403; substituir.
 
 export const PRODUCTS: Product[] = [
   {
@@ -182,7 +181,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "monte-p",
     category: "monte",
-    name: "Marmita P (Monte)",
+    name: "Marmita P (À sua escolha)",
     description: MONTE_DESC,
     ifoodPrice: 26.8,
     price: own(26.8),
@@ -193,7 +192,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "monte-m",
     category: "monte",
-    name: "Marmita M (Monte)",
+    name: "Marmita M (À sua escolha)",
     description: MONTE_DESC,
     ifoodPrice: 27.9,
     price: own(27.9),
@@ -204,7 +203,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "monte-g",
     category: "monte",
-    name: "Marmita G (Monte)",
+    name: "Marmita G (À sua escolha)",
     description: MONTE_DESC,
     // No iFood a G aparece hoje por R$ 27,90 (promoção). Preço cheio de catálogo: R$ 29,90 ("de" riscado R$ 43,50).
     ifoodPrice: 27.9,
@@ -246,19 +245,19 @@ export const PRODUCTS: Product[] = [
   },
   // Bebidas avulsas: sem desconto (preço do iFood = preço próprio).
   ...[
-    ["agua", "Água Mineral Sem Gás Crystal 500ml", 5.99],
-    ["agua-gas", "Água Mineral Com Gás Crystal 500ml", 5.99],
-    ["coca", "Coca-Cola 350ml", 8.99],
-    ["coca-zero", "Coca-Cola Zero 350ml", 8.99],
+    ["agua", "Água Mineral Sem Gás Crystal 500ml", 5.99, "agua.webp"],
+    ["agua-gas", "Água Mineral Com Gás Crystal 500ml", 5.99, "agua-gas.webp"],
+    ["coca", "Coca-Cola 350ml", 8.99, "coca.png"],
+    ["coca-zero", "Coca-Cola Zero 350ml", 8.99, "coca-zero.webp"],
   ].map(
-    ([id, name, price]): Product => ({
+    ([id, name, price, img]): Product => ({
       id: `beb-${id}`,
       category: "bebidas",
       name: name as string,
       description: "Gelada, direto da geladeira.",
       ifoodPrice: price as number,
       price: price as number,
-      image: BEBIDA_PLACEHOLDER,
+      image: IMG + img,
       groups: [],
     }),
   ),
